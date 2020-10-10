@@ -46,7 +46,7 @@ namespace SimpleAndChoiceResponse
             saveTF = new Boolean[20];
             label1.Hide();
             closeBtn.Hide();
-            
+            KeyPreview = true;
         }
         private async void StartTest()
         {
