@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -72,6 +75,7 @@
     <Compile Include="SRT.Designer.cs">
       <DependentUpon>SRT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Worker.cs" />
     <EmbeddedResource Include="CRT_2.resx">
       <DependentUpon>CRT_2.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,16 +112,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\X_MARK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Simple_Description.PNG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\CRT2_Description.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\CRT4_Description.PNG" />
+    <Content Include="Properties\CRT2_Description.png" />
+    <Content Include="Properties\CRT4_Description.PNG" />
+    <Content Include="Properties\Simple_Description.PNG" />
+    <Content Include="Properties\X_MARK.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
