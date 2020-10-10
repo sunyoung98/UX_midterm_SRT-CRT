@@ -1,0 +1,12 @@
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\bin\Debug\SimpleAndChoiceResponse.exe.config
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\bin\Debug\SimpleAndChoiceResponse.exe
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\bin\Debug\SimpleAndChoiceResponse.pdb
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\obj\Debug\SimpleAndChoiceResponse.CRT_2.resources
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\obj\Debug\SimpleAndChoiceResponse.CRT_4.resources
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\obj\Debug\SimpleAndChoiceResponse.Form1.resources
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\obj\Debug\SimpleAndChoiceResponse.Properties.Resources.resources
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\obj\Debug\SimpleAndChoiceResponse.SRT.resources
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\obj\Debug\SimpleAndChoiceResponse.csproj.GenerateResource.cache
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\obj\Debug\SimpleAndChoiceResponse.exe
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\obj\Debug\SimpleAndChoiceResponse.pdb
+C:\Users\tjsdu\source\repos\SimpleAndChoiceResponse\SimpleAndChoiceResponse\obj\Debug\SimpleAndChoiceResponse.csprojAssemblyReference.cache
