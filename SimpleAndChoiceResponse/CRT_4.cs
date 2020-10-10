@@ -213,7 +213,7 @@ namespace SimpleAndChoiceResponse
                         }
                     }
                     break;
-                case Keys.Q:
+                case Keys.Add:
                     {
                         if (userTestTime)
                         {

@@ -182,7 +182,7 @@ pictureBoxes[0].Update();
                         }
                     }
                     break;
-                case Keys.Q:
+                case Keys.Add:
                     {
                         if (userTestTime)
                         {
