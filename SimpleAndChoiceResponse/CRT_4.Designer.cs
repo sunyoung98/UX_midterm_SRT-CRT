@@ -122,6 +122,7 @@
             this.DoubleBuffered = true;
             this.Name = "CRT_4";
             this.Text = "CRT_4";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CRT_4_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CRT_4_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

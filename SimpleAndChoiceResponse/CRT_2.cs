@@ -15,7 +15,7 @@ namespace SimpleAndChoiceResponse
 {
     public partial class CRT_2 : Form
     {
-        public static string X_image = System.Windows.Forms.Application.StartupPath + "\\X_MARK.png";
+        public string X_image = System.Windows.Forms.Application.StartupPath + "\\X_MARK.png";
         Boolean init = false;
         PictureBox[] pictureBoxes;
         int[] RandomTimer;
@@ -30,6 +30,7 @@ namespace SimpleAndChoiceResponse
         Boolean userTestTime = false;
         private string fileName;
         private int num = 2;
+        Boolean can_cancel = true;
 
         /*
 pictureBoxes[0].ImageLocation=X_image;
@@ -42,7 +43,7 @@ pictureBoxes[0].Update();
             foreach (PictureBox p in pictureBoxes)
                 p.Hide();
             Random_Time_Generate();
-            Random_Button_Generate(2);
+            Random_Button_Generate();
             TimeCheck = new Double[20];
             UserInput = new int[20];
             saveTF = new Boolean[20];
@@ -51,6 +52,21 @@ pictureBoxes[0].Update();
             KeyPreview = true;
 
         }
+        public T[] Shuffle<T>(T[] array)
+        {
+            var random = new Random();
+            for (int i = array.Length; i > 1; i--)
+            {
+                // Pick random element to swap.
+                int j = random.Next(i); // 0 <= j <= i-1
+                                        // Swap.
+                T tmp = array[j];
+                array[j] = array[i - 1];
+                array[i - 1] = tmp;
+            }
+            return array;
+        }
+
         private void Random_Time_Generate()
         {
             RandomTimer = new int[20];
@@ -61,18 +77,22 @@ pictureBoxes[0].Update();
                 Console.Write(RandomTimer[i] + " ");
             Console.WriteLine();
         }
-        private void Random_Button_Generate(int n)
+        private void Random_Button_Generate()
         {
             RandomButton = new int[20];
-            rand = new Random();
-            for (int i = 0; i < 20; i++)
-                RandomButton[i] = rand.Next(0, n);
-            for (int i = 0; i < 20; i++)
-                Console.Write(RandomButton[i] + " ");
-            Console.WriteLine();
+            int[] RandomNum = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
+            RandomNum = Shuffle<int>(RandomNum);
+            for(int i=0; i<20; i++)
+            {
+                if (i < 10)
+                    RandomButton[RandomNum[i]] = 0;
+                else
+                    RandomButton[RandomNum[i]] = 1;
+            }
         }
         private async void StartTest()
         {
+            can_cancel = false;
             for (int i = 0; i < 20; i++)
             {
                 await Task.Run(async () =>
@@ -94,7 +114,16 @@ pictureBoxes[0].Update();
                     timer.Start();
                     userTestTime = true;
                     workerObject.RequestStart();
-                    workerObject.DelayAsync(timer);
+                    int result = await workerObject.DelayAsync(timer);
+                    if (result == -1)
+                    {
+                        workerObject.RequestStop();
+                        timer.Stop();
+                        Console.WriteLine("Nothing");
+                        UserInput[userIndex] = -1;
+                        saveTF[userIndex] = false;
+                        TimeCheck[userIndex] = 5000;
+                    }
                 });
 
 
@@ -128,6 +157,7 @@ pictureBoxes[0].Update();
             label1.Update();
             label1.Show();
             closeBtn.Show();
+            can_cancel = true;
         }
 
         private void CRT_2_KeyDown(object sender, KeyEventArgs e)
@@ -183,25 +213,19 @@ pictureBoxes[0].Update();
                         }
                     }
                     break;
-                case Keys.Q:
-                    {
-                        if (userTestTime)
-                        {
-                            workerObject.RequestStop();
-                            timer.Stop();
-                            Console.WriteLine("Nothing");
-                            UserInput[userIndex] = -1;
-                            saveTF[userIndex] = false;
-                            TimeCheck[userIndex] = 5000;
-                        }
-                    }
-                    break;
             }
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CRT_2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!can_cancel)
+                e.Cancel = true;
+            
         }
     }
 }

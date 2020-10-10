@@ -15,7 +15,7 @@ namespace SimpleAndChoiceResponse
 {
     public partial class SRT : Form
     {
-        public static string X_image = System.Windows.Forms.Application.StartupPath + "\\X_MARK.png";
+        public string X_image = System.Windows.Forms.Application.StartupPath + "\\X_MARK.png";
         Boolean init = false;
         int[] RandomTimer;
         Random rand;
@@ -31,6 +31,7 @@ namespace SimpleAndChoiceResponse
         pictureBoxes[0].ImageLocation=X_image;
         pictureBoxes[0].Update();
          */
+        Boolean can_cancel = true;
         public SRT()
         {
             InitializeComponent();
@@ -55,6 +56,7 @@ namespace SimpleAndChoiceResponse
         }
         private async void StartTest()
         {
+            can_cancel = false;
             for (int i = 0; i < 20; i++)
             {
                 await Task.Run(async () =>
@@ -73,7 +75,15 @@ namespace SimpleAndChoiceResponse
                     timer.Start();
                     userTestTime = true;
                     workerObject.RequestStart();
-                    workerObject.DelayAsync(timer);
+                    int result = await workerObject.DelayAsync(timer);
+                    if (result == -1)
+                    {
+                        workerObject.RequestStop();
+                        timer.Stop();
+                        Console.WriteLine("Nothing");
+                        saveTF[userIndex] = false;
+                        TimeCheck[userIndex] = 5000;
+                    }
                 });
 
 
@@ -105,6 +115,7 @@ namespace SimpleAndChoiceResponse
             closeBtn.Show();
             tw.Close();
             fs.Close();
+            can_cancel = true;
 
         }
 
@@ -136,18 +147,6 @@ namespace SimpleAndChoiceResponse
                         }
                     }
                     break;
-                case Keys.Q:
-                    {
-                        if (userTestTime)
-                        {
-                            workerObject.RequestStop();
-                            timer.Stop();
-                            Console.WriteLine("Nothing");
-                            saveTF[userIndex] = false;
-                            TimeCheck[userIndex] = 5000;
-                        }
-                    }
-                    break;
 
             }
         }
@@ -155,6 +154,13 @@ namespace SimpleAndChoiceResponse
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void SRT_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!can_cancel)
+                e.Cancel = true;
+
         }
     }
 }

@@ -94,6 +94,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "CRT_2";
             this.Text = "CRT_2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CRT_2_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CRT_2_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

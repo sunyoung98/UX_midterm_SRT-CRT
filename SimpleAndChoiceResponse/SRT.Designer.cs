@@ -80,6 +80,7 @@
             this.DoubleBuffered = true;
             this.Name = "SRT";
             this.Text = "SRT";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SRT_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SRT_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
