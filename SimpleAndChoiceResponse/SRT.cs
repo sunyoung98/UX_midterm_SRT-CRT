@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SternbergTest;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -135,7 +136,7 @@ namespace SimpleAndChoiceResponse
                         }
                     }
                     break;
-                case Keys.Add:
+                case Keys.Q:
                     {
                         if (userTestTime)
                         {

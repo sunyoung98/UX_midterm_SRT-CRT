@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SternbergTest;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -182,7 +183,7 @@ pictureBoxes[0].Update();
                         }
                     }
                     break;
-                case Keys.Add:
+                case Keys.Q:
                     {
                         if (userTestTime)
                         {
