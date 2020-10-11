@@ -93,6 +93,10 @@ pictureBoxes[0].Update();
         private async void StartTest()
         {
             can_cancel = false;
+            foreach (PictureBox p in pictureBoxes)
+            {
+                p.Show();
+            }
             for (int i = 0; i < 20; i++)
             {
                 await Task.Run(async () =>
@@ -104,9 +108,8 @@ pictureBoxes[0].Update();
                     foreach (PictureBox p in pictureBoxes)
                     {
                         p.Image = null;
-                        p.Update();
                         p.BackColor = Color.White;
-                        p.Show();
+                        p.Update();
                     }
                     Task.Delay(RandomTimer[i]).Wait();
                     pictureBoxes[RandomButton[i]].ImageLocation = X_image;

@@ -93,6 +93,16 @@ namespace SimpleAndChoiceResponse.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Simple_Description1 {
+            get {
+                object obj = ResourceManager.GetObject("Simple_Description1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap X_MARK {
             get {
                 object obj = ResourceManager.GetObject("X_MARK", resourceCulture);

@@ -67,8 +67,8 @@ namespace SimpleAndChoiceResponse
                         pictureBox1.Image = null;
                     pictureBox1.Update();
                     pictureBox1.BackColor = Color.White;
-                    pictureBox1.Show();
-                  
+                    pictureBox1.Update();
+
                     Task.Delay(RandomTimer[i]).Wait();
                     pictureBox1.ImageLocation = X_image;
                     pictureBox1.Update();
