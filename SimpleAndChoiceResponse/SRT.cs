@@ -159,7 +159,7 @@ namespace SimpleAndChoiceResponse
         private void SRT_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!can_cancel)
-                e.Cancel = true;
+                Application.Exit();
 
         }
     }

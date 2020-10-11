@@ -224,8 +224,8 @@ pictureBoxes[0].Update();
         private void CRT_2_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!can_cancel)
-                e.Cancel = true;
-            
+                Application.Exit();
+
         }
     }
 }

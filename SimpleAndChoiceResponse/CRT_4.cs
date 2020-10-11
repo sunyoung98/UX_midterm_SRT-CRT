@@ -262,7 +262,7 @@ namespace SimpleAndChoiceResponse
         private void CRT_4_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!can_cancel)
-                e.Cancel = true;
+                Application.Exit();
 
         }
     }
